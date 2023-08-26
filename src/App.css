@@ -1,0 +1,57 @@
+*, 
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+:root {
+  --main-blue: #4799eb;
+  --main-black: #1c1e22;
+  --main-grey: #272b30;
+
+  --second-black: #32383e;
+
+  --font-grey: #89aaaa;
+  --font-blue: #49acff;
+  
+  --font-second-grey: #8d8f91;
+
+  --active-link: #edeeee;
+}
+
+.App {
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem 1rem 1rem;
+
+  background-color: var(--main-grey);
+}
+
+.link {
+  color: var(--font-grey);
+  font-size: 2.5rem;
+  text-decoration: none;
+
+  transition: .2s linear;
+}
+
+.link:hover {
+  color: var(--active-link);
+}
+
+.active-link {
+  color: var(--active-link);
+}

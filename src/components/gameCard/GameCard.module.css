@@ -1,0 +1,21 @@
+.gameCard {
+  color: var(--font-grey);
+  border-radius: .2rem;
+  background-color: var(--second-black);
+  box-shadow: 6px 8px 8px 0px rgba(0, 0, 0, 0.2);
+
+  transition: .2s linear;
+}
+
+.gameCard:hover {
+  cursor: pointer;
+  transform: translateY(-.4rem);
+}
+
+.gameImg {
+  width: 100%;
+}
+
+.gameInfo {
+  padding: 1rem;
+}
