@@ -1,5 +1,12 @@
-.gamesList {
+.gamesListInner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.games {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 }
+
