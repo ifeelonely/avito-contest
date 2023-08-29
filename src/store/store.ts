@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { gamesAPI } from '../services/GamesService';
+import currentGameReducer from './reducers/CurrentGameSlice';
 
 const rootReducer = combineReducers({
+  currentGameReducer, 
   [gamesAPI.reducerPath]: gamesAPI.reducer,
 });
 

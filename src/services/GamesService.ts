@@ -28,6 +28,19 @@ export const gamesAPI = createApi({
         },
       }),
     }),
+    fetchParticularGameInfo: build.query({
+      query: (gameId) => ({
+        url: 'api/game',
+        params: {
+          id: gameId,
+        },
+        headers: {
+          'X-RapidAPI-Key':
+            'c09a6a1f5cmsh892ae8cc12f09fdp113cc8jsna53673f99dee',
+          'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
+        },
+      }),
+    }),
   }),
 });
 

@@ -1,12 +1,12 @@
-
+import DetailedGameCard from "../../components/detailedGameCard/DetailedGameCard";
 
 
 const Game = ():JSX.Element => {
 
   return (
-    <div>
-      game
-    </div>
+
+     <DetailedGameCard />
+
   );
 };
 
