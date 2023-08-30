@@ -1,4 +1,4 @@
-import { LinearProgress, Select } from '@mui/material';
+import { LinearProgress } from '@mui/material';
 import { gamesAPI } from '../../services/GamesService';
 import { GameInfo } from '../gameCard/GameCardInt';
 import styles from './GamesList.module.css';
@@ -6,13 +6,31 @@ import GameCard from '../gameCard/GameCard';
 import { currentGameSlice } from '../../store/reducers/CurrentGameSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import {
+  filterOptionsGenre,
+  filterOptionsPlatform,
+  sortOptions,
+} from '../../tempData/SelectOptions';
+import { useState } from 'react';
+import CustomSelect from '../select/CustomSelect';
 
 const GamesList = (): JSX.Element => {
+  const [sortOption, setSortOption] = useState<string | undefined>(undefined);
+  const [filterGenreOption, setFilterGenreOption] = useState<
+    string | undefined
+  >(undefined);
+  const [filterPlatformOption, setFilterPlatformOption] = useState<
+    string | undefined
+  >(undefined);
   const {
     data: gamesList,
     error,
     isFetching,
-  } = gamesAPI.useFetchGamesQuery(null);
+  } = gamesAPI.useFetchGamesQuery({
+    'sort-by': sortOption,
+    category: filterGenreOption,
+    platform: filterPlatformOption,
+  });
   const { setCurrentGameId } = currentGameSlice.actions;
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,18 +40,44 @@ const GamesList = (): JSX.Element => {
     navigate('/game');
   };
 
+  const onSortChange = (newSort: string) => {
+    setSortOption(newSort);
+  };
+
+  const onFilterGenreChange = (newFilter: string) => {
+    setFilterGenreOption(newFilter);
+  };
+
+  const onFilterPlatformChange = (newFilter: string) => {
+    setFilterPlatformOption(newFilter);
+  };
   return (
     <div>
       <div className={styles.gamesListInner}>
-        {/* <section>
-          <span>Filter: </span>
-          <Select></Select>
-          <span>Sort by: </span>
-          <Select></Select>
-        </section> */}
+        <div className={styles.sortAndFilter}>
+          <CustomSelect
+            options={sortOptions}
+            value={sortOption}
+            onChange={onSortChange}
+            label="Sort by"
+          />
+          <CustomSelect
+            options={filterOptionsGenre}
+            value={filterGenreOption}
+            onChange={onFilterGenreChange}
+            label="Genre"
+          />
+          <CustomSelect
+            options={filterOptionsPlatform}
+            value={filterPlatformOption}
+            onChange={onFilterPlatformChange}
+            label="Platform"
+          />
+        </div>
+
         <section className={styles.games}>
           {isFetching || error ? (
-            <div className={styles.loadingBar}>
+            <div className={styles.absoluteCenter}>
               {error ? (
                 <h2>Oops, something went wrong!</h2>
               ) : (
@@ -41,7 +85,7 @@ const GamesList = (): JSX.Element => {
               )}
             </div>
           ) : null}
-          {gamesList
+          {gamesList && !isFetching && Array.isArray(gamesList)
             ? gamesList.map((game: GameInfo) => (
                 <GameCard
                   key={game.id}
@@ -50,6 +94,9 @@ const GamesList = (): JSX.Element => {
                 />
               ))
             : null}
+          {!Array.isArray(gamesList) && !isFetching ? (
+            <h2 className={styles.absoluteCenter}>No games were found!</h2>
+          ) : null}
         </section>
       </div>
     </div>

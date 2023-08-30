@@ -1,5 +1,5 @@
 .detailedGameCard {
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .cardInner {  display: grid;
@@ -16,5 +16,36 @@
 
 .carouselContainer { grid-area: carouselContainer; }
 
+.arrowBack {
+  color: var(--font-grey);
+  width: 3rem;
+  font-size: 3rem;
+  height: 3rem;
+}
+
+.arrowBack:hover {
+  cursor: pointer;
+}
+
+.userFeedback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  width: 300px;
+  text-align: center;
+
+  color: var(--font-grey);
+}
+
+@media (max-width: 900px) {
+  .cardInner {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+}
 
 

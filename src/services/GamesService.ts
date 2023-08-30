@@ -18,9 +18,10 @@ export const gamesAPI = createApi({
   baseQuery: baseQuery,
   endpoints: (build) => ({
     fetchGames: build.query({
-      query: () => ({
+      query: (queryArgs) => ({
         url: '/api/games',
-        timeout: 3000,
+        timeout: 3000, 
+        params: queryArgs,
         headers: {
           'X-RapidAPI-Key':
             'c09a6a1f5cmsh892ae8cc12f09fdp113cc8jsna53673f99dee',
@@ -43,5 +44,3 @@ export const gamesAPI = createApi({
     }),
   }),
 });
-
-// 'https://api.allorigins.win/get?url=https://www.freetogame.com'

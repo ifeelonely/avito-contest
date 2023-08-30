@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.loadingBar {
+.absoluteCenter {
   width: 300px;
   position: absolute;
   top: 50%;
@@ -26,3 +26,23 @@
   color: var(--font-grey);
 }
 
+.sortAndFilter {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 800px) {
+  .games {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .games {
+    grid-template-columns: 1fr;
+    width: 80%;
+  }
+  .sortAndFilter {
+    flex-direction: column;
+  }
+}
