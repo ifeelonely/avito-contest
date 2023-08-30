@@ -1,27 +1,31 @@
-# React + TypeScript + Vite
+# Avito-contest. Работа с проектом
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Склонировать репозиторий(git clone)
+2. Установить зависимости(npm i)
+3. Запустить проект в режиме разработки (npm start)
+  - После запуска проекта его можно открыть по адресу localhost:3001 или кликнув ctrl + ЛКМ по IP адресу в терминале 
+# Описание проекта
 
-Currently, two official plugins are available:
+## 1. Инструменты
+- React;
+- Redux / Redux toolkit;
+- Vite;
+- CSS modules;
+- React router v6;
+- Material UI
+- npm
+- TypeScript
+## 2. Что было сделано
+- Показывает игры, игры можно отфильтровать и отсортировать;
+- По клику на игру происходит переход на страницу игры;
+- Обработка ошибок и отсутствя данных;
+- Страница игры содержит информацию об игре и карусель скриншотов(интерактив с каруселью осуществляется как в рабочей области картинки так и снизу карусели)
+- На запросы и загрузку скриншотов был добавлен индикатор загрузки;
+- Адаптивный интерфейс;
+- Три попытки запроса при неудачном запросе;
+- Сохранение последней игры в Session Storage(без таймера в 5 минут);
+## 3. Что НЕ было реализовано
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Покрытие кода юнит-тестами;
+- Бэкенд для хостинга статики;
+- Учитывать, что список игрл должен содержать тысячи тайтлов;
