@@ -6,16 +6,9 @@ const selectStyles = {
   '& .MuiSelect-select': { color: 'var(--font-grey)' },
   '& .MuiOutlinedInput-notchedOutline': {
     borderColor: 'var(--font-grey)',
-    color: 'white',
   },
   '& .MuiSvgIcon-root': {
     color: 'var(--font-grey)',
-  },
-  '& .MuiInputBase-root': {
-    color: 'white',
-  },
-  '& .MuiSelect-nativeInput': {
-    color: 'white',
   },
 };
 

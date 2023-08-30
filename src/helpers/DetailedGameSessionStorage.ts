@@ -6,5 +6,6 @@ export const setGameDetails = (details: GameInfo) => {
 
 export const getGameDetails = () => {
   const sessionData = sessionStorage.getItem('curGame');
-  return sessionData ? JSON.parse(sessionData) : null;
+  if (sessionData === 'undefined') return null;
+  return JSON.parse(sessionData || '[]');
 };

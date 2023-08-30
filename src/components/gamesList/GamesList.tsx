@@ -51,6 +51,7 @@ const GamesList = (): JSX.Element => {
   const onFilterPlatformChange = (newFilter: string) => {
     setFilterPlatformOption(newFilter);
   };
+  
   return (
     <div>
       <div className={styles.gamesListInner}>
@@ -94,6 +95,7 @@ const GamesList = (): JSX.Element => {
                 />
               ))
             : null}
+
           {!Array.isArray(gamesList) && !isFetching ? (
             <h2 className={styles.absoluteCenter}>No games were found!</h2>
           ) : null}

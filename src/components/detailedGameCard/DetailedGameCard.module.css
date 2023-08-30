@@ -40,6 +40,19 @@
   color: var(--font-grey);
 }
 
+.hide {
+  display: none;
+}
+
+.loadingScreens {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-grey)
+}
+
 @media (max-width: 900px) {
   .cardInner {
     display: flex;
